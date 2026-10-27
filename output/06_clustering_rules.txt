@@ -1,0 +1,103 @@
+Average silhouette by k (2-6): 0.216 0.215 0.197 0.188 0.185 -> chosen k = 2 
+
+Agreement between k-means and hierarchical clusters:
+      hierarchical
+kmeans  1  2
+     1 58 41
+     2  2 74
+
+Cluster profiles (means, original units):
+# A tibble: 2 × 8
+  Cluster_km months INR_ret INR_vol Brent_ret USD_ret   FPI VIX_chg
+  <fct>       <int>   <dbl>   <dbl>     <dbl>   <dbl> <dbl>   <dbl>
+1 1              99  -0.454   0.309      2.53  -0.519  2.81   -1.01
+2 2              76   1.41    0.412     -2.01   1.02  -1.68    1.16
+wrote 1.00TB in  0s, 524.29PB/s                                                                                                   wrote 420.00B in  0s, 195.73MB/s                                                                                                   wrote 1.00TB in  0s, 755.87TB/s                                                                                                   
+Frequent itemsets (support >= 0.10):
+Apriori
+
+Parameter specification:
+ confidence minval smax arem  aval originalSupport maxtime support minlen maxlen            target
+         NA    0.1    1 none FALSE            TRUE       5     0.1      2     10 frequent itemsets
+  ext
+ TRUE
+
+Algorithmic control:
+ filter tree heap memopt load sort verbose
+    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+
+Absolute minimum support count: 17 
+
+set item appearances ...[0 item(s)] done [0.00s].
+set transactions ...[21 item(s), 175 transaction(s)] done [0.00s].
+sorting and recoding items ... [21 item(s)] done [0.00s].
+creating transaction tree ... done [0.00s].
+checking subsets of size 1 2 3 done [0.00s].
+sorting transactions ... done [0.00s].
+writing ... [135 set(s)] done [0.00s].
+creating S4 object  ... done [0.00s].
+     items                               support   count
+[1]  {FPI=Low, Rupee=Weak}               0.2057143 36   
+[2]  {DollarChange=Low, Rupee=Strong}    0.1828571 32   
+[3]  {DollarChange=High, OilChange=Low}  0.1714286 30   
+[4]  {OilChange=High, VIXChange=Low}     0.1657143 29   
+[5]  {FPI=High, Rupee=Strong}            0.1657143 29   
+[6]  {DollarChange=Low, VIXChange=Low}   0.1657143 29   
+[7]  {DollarChange=High, Rupee=Weak}     0.1600000 28   
+[8]  {DollarChange=High, VIXChange=High} 0.1542857 27   
+[9]  {DollarChange=Mid, OilChange=Mid}   0.1542857 27   
+[10] {DollarChange=Low, OilChange=High}  0.1542857 27   
+Apriori
+
+Parameter specification:
+ confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target  ext
+        0.5    0.1    1 none FALSE            TRUE       5    0.05      2      4  rules TRUE
+
+Algorithmic control:
+ filter tree heap memopt load sort verbose
+    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+
+Absolute minimum support count: 8 
+
+set item appearances ...[1 item(s)] done [0.00s].
+set transactions ...[21 item(s), 175 transaction(s)] done [0.00s].
+sorting and recoding items ... [21 item(s)] done [0.00s].
+creating transaction tree ... done [0.00s].
+checking subsets of size 1 2 3 4 done [0.00s].
+writing ... [25 rule(s)] done [0.00s].
+creating S4 object  ... done [0.00s].
+
+Rules that end in Rupee=Weak (sorted by lift):
+     lhs                                                  rhs          support    confidence
+[1]  {FPI=Low, RateGapChange=High, TradeBalChange=Mid} => {Rupee=Weak} 0.05142857 1.0000000 
+[2]  {FPI=Low, TradeBalChange=Mid}                     => {Rupee=Weak} 0.09714286 0.7727273 
+[3]  {FPI=Low, RateGapChange=High}                     => {Rupee=Weak} 0.10857143 0.7307692 
+[4]  {FPI=Low, VIXChange=Mid}                          => {Rupee=Weak} 0.07428571 0.7222222 
+[5]  {DollarChange=High, FPI=Low, VIXChange=High}      => {Rupee=Weak} 0.05714286 0.7142857 
+[6]  {FPI=Low, OilChange=Low}                          => {Rupee=Weak} 0.07428571 0.6842105 
+[7]  {DollarChange=Mid, FPI=Low}                       => {Rupee=Weak} 0.06857143 0.6666667 
+[8]  {FPI=Low, VIXChange=High}                         => {Rupee=Weak} 0.08000000 0.6363636 
+[9]  {RateGapChange=High, VIXChange=Mid}               => {Rupee=Weak} 0.06285714 0.6111111 
+[10] {FPI=Low}                                         => {Rupee=Weak} 0.20571429 0.6101695 
+[11] {FPI=Low, OilChange=High}                         => {Rupee=Weak} 0.08000000 0.6086957 
+[12] {DollarChange=High, FPI=Low}                      => {Rupee=Weak} 0.08571429 0.6000000 
+[13] {DollarChange=High, VIXChange=High}               => {Rupee=Weak} 0.09142857 0.5925926 
+[14] {FPI=Low, RateGapChange=Low}                      => {Rupee=Weak} 0.05714286 0.5882353 
+[15] {RateGapChange=High, TradeBalChange=Mid}          => {Rupee=Weak} 0.06285714 0.5789474 
+     coverage   lift     count
+[1]  0.05142857 3.017241  9   
+[2]  0.12571429 2.331505 17   
+[3]  0.14857143 2.204907 19   
+[4]  0.10285714 2.179119 13   
+[5]  0.08000000 2.155172 10   
+[6]  0.10857143 2.064428 13   
+[7]  0.10285714 2.011494 12   
+[8]  0.12571429 1.920063 14   
+[9]  0.10285714 1.843870 11   
+[10] 0.33714286 1.841029 36   
+[11] 0.13142857 1.836582 14   
+[12] 0.14285714 1.810345 15   
+[13] 0.15428571 1.787995 16   
+[14] 0.09714286 1.774848 10   
+[15] 0.10857143 1.746824 11   
+wrote 1.23kB in  0s, 245.87MB/s                                                                                                   wrote 1.00TB in  0s, 7.99PB/s                                                                                                   

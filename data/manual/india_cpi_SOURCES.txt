@@ -1,0 +1,19 @@
+India CPI y/y (all-India, general, combined) copied from MoSPI/NSO press releases.
+Figures are the Combined column, using later "Final" numbers when a subsequent release revised the provisional print.
+
+2025-04  3.16  https://www.mospi.gov.in/sites/default/files/press_release/CPI_PR_13May25.pdf
+2025-05  2.82  https://www.cpi.mospi.gov.in/PDFile/Press/PR%20May%202025.pdf  (final in June 2025 table)
+2025-06  2.10  https://mospi.gov.in/sites/default/files/press_release/CPI_PR_14Jun25.pdf  (final in July 2025 table)
+2025-07  1.61  August 2025 PIB: Aug 2.07 is +46 bp vs July; Dec 2025 chart also prints 1.61
+             https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/sep/doc2025912634601.pdf
+2025-08  2.07  same August 2025 PIB; September table still 2.07 Combined
+2025-09  1.44  October 2025 release, September Final Combined
+             https://www.mospi.gov.in/uploads/latestReleases/latest_release_1762943528848_3d8d7b84-4ce5-4995-8ccc-3e51617d8356_Press_Release_CPI_Oct_2025.pdf
+2025-10  0.25  November 2025 table, October Final Combined
+             https://www.mospi.gov.in/uploads/latestreleasesfiles/1765535702131-Press%20Release_CPI_November_2025.pdf
+2025-11  0.71  December 2025 table, November Final Combined
+             https://www.mospi.gov.in/uploads/latestReleases/latest_release_1768213461321_53cd35fd-1bbc-4b43-b92d-8fb67474ee74_Press_Release_of_CPI_for_December_2025.pdf
+2025-12  1.33  same December 2025 press release (provisional Combined)
+2026-01 to 2026-09  Combined y/y from Annexure-IV of 12 Oct 2026 release (base 2024=100)
+             https://www.mospi.gov.in/uploads/latestReleases/latest_release_1791800601071_643518af-5320-4e52-b78c-75c92b83885b_Press_Release_for_the_month_of_September,_2026.pdf
+             2026-08 Combined 4.83 (Final); 2026-09 Combined 5.54 (Provisional)

@@ -1,0 +1,142 @@
+Class balance (train):
+
+Normal   High 
+    98     33 
+
+################# EarlyWarning #################
+
+Call:
+glm(formula = fo, family = binomial, data = train)
+
+Coefficients:
+                Estimate Std. Error z value Pr(>|z|)   
+(Intercept)     -1.24379    0.49939  -2.491  0.01275 * 
+L1_INR_ret       0.07877    0.18208   0.433  0.66529   
+L1_INR_vol       0.67533    1.07867   0.626  0.53127   
+L1_Brent_ret    -0.02197    0.02494  -0.881  0.37844   
+L1_USD_ret      -0.15308    0.27734  -0.552  0.58099   
+L1_FPI          -0.04627    0.08198  -0.564  0.57244   
+L1_VIX_chg       0.01938    0.05319   0.364  0.71564   
+L1_Reserves_chg -0.48334    0.17551  -2.754  0.00589 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 147.88  on 130  degrees of freedom
+Residual deviance: 128.20  on 123  degrees of freedom
+AIC: 144.2
+
+Number of Fisher Scoring iterations: 4
+
+Odds ratios:
+    (Intercept)      L1_INR_ret      L1_INR_vol    L1_Brent_ret      L1_USD_ret          L1_FPI 
+          0.288           1.082           1.965           0.978           0.858           0.955 
+     L1_VIX_chg L1_Reserves_chg 
+          1.020           0.617 
+
+--- EarlyWarning - Logistic ---
+          Reference
+Prediction Normal High
+    Normal     22    1
+    High       16    4
+
+--- EarlyWarning - LDA ---
+          Reference
+Prediction Normal High
+    Normal     24    1
+    High       14    4
+
+--- EarlyWarning - Tree ---
+          Reference
+Prediction Normal High
+    Normal     38    5
+    High        0    0
+
+--- EarlyWarning - SVM ---
+          Reference
+Prediction Normal High
+    Normal     17    1
+    High       21    4
+
+################# Nowcast #################
+
+Call:
+glm(formula = fo, family = binomial, data = train)
+
+Coefficients:
+            Estimate Std. Error z value   Pr(>|z|)    
+(Intercept) -3.19607    0.71094  -4.496 0.00000694 ***
+Brent_ret   -0.01830    0.03421  -0.535    0.59263    
+USD_ret      1.27697    0.40615   3.144    0.00167 ** 
+FPI         -0.72380    0.18057  -4.008 0.00006114 ***
+VIX_chg     -0.09665    0.11486  -0.841    0.40012    
+d_Rate_diff  2.15492    0.98847   2.180    0.02925 *  
+d_Trade_Bal  0.40253    0.13238   3.041    0.00236 ** 
+Infl_diff    0.33836    0.12058   2.806    0.00501 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 147.879  on 130  degrees of freedom
+Residual deviance:  74.223  on 123  degrees of freedom
+AIC: 90.223
+
+Number of Fisher Scoring iterations: 7
+
+Odds ratios:
+(Intercept)   Brent_ret     USD_ret         FPI     VIX_chg d_Rate_diff d_Trade_Bal   Infl_diff 
+      0.041       0.982       3.586       0.485       0.908       8.627       1.496       1.403 
+
+--- Nowcast - Logistic ---
+          Reference
+Prediction Normal High
+    Normal     29    2
+    High        9    3
+
+--- Nowcast - LDA ---
+          Reference
+Prediction Normal High
+    Normal     29    1
+    High        9    4
+
+--- Nowcast - Tree ---
+          Reference
+Prediction Normal High
+    Normal     24    0
+    High       14    5
+
+--- Nowcast - SVM ---
+          Reference
+Prediction Normal High
+    Normal     32    2
+    High        6    3
+
+Test-period performance (2023 onward):
+# A tibble: 8 × 7
+  model                   accuracy sensitivity specificity precision balanced_acc   AUC
+  <chr>                      <dbl>       <dbl>       <dbl>     <dbl>        <dbl> <dbl>
+1 EarlyWarning - Logistic    0.605         0.8       0.579     0.2          0.689 0.695
+2 EarlyWarning - LDA         0.651         0.8       0.632     0.222        0.716 0.689
+3 EarlyWarning - Tree        0.884         0         1       NaN            0.5   0.5  
+4 EarlyWarning - SVM         0.488         0.8       0.447     0.16         0.624 0.737
+5 Nowcast - Logistic         0.744         0.6       0.763     0.25         0.682 0.868
+6 Nowcast - LDA              0.767         0.8       0.763     0.308        0.782 0.863
+7 Nowcast - Tree             0.674         1         0.632     0.263        0.816 0.803
+8 Nowcast - SVM              0.814         0.6       0.842     0.333        0.721 0.837
+wrote 1.00TB in  0s, 322.64PB/s                                                                                                   wrote 885.00B in  0s, 309.33MB/s                                                                                                   wrote 1.00TB in  0s, 900.07TB/s                                                                                                   
+################# Appendix: 3-class pressure (proposal labels) #################
+Train class counts:
+
+  Stable Moderate     High 
+      66       32       33 
+
+Test confusion matrix (3-class nowcast tree):
+          Reference
+Prediction Stable Moderate High
+  Stable       13        2    0
+  Moderate      4       14    5
+  High          3        2    0
+Accuracy: 0.628 
+wrote 266.00B in  0s, 85.82MB/s                                                                                                   wrote 1.00TB in  0s, 4.69PB/s                                                                                                   

@@ -1,0 +1,2 @@
+Brent_ret,USD_ret,FPI,Infl_diff,d_Rate_diff,d_Trade_Bal,month,last_daily_obs,model_estimate_pct,low80,high80,actual_mtd_pct,note
+9.464406586843378,1.883532938918675,-6.11889136907878,1.8227491557310067,0,0,2026-10-01,2026-10-16,1.8366000434782292,0.3430831896498323,3.330116897306626,0.5162405000870285,FPI and inflation gap carried from latest published month

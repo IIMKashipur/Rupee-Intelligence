@@ -1,0 +1,10 @@
+variable,missing_months,last_month
+INR_ret,1,2026-09-01
+Brent_ret,0,2026-10-01
+USD_ret,0,2026-10-01
+VIX_chg,0,2026-10-01
+FPI,1,2026-09-01
+Infl_diff,2,2026-09-01
+d_Rate_diff,1,2026-09-01
+d_Trade_Bal,2,2026-08-01
+Reserves_chg,2,2026-08-01

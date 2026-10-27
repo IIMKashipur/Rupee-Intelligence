@@ -1,0 +1,160 @@
+# A tibble: 13 × 8
+   variable          n    mean  median      sd      min     max    skew
+   <chr>         <int>   <dbl>   <dbl>   <dbl>    <dbl>   <dbl>   <dbl>
+ 1 Brent           175  75.8    74.0    23.8    18.4    125.     0.143 
+ 2 Brent_ret       175   0.557   0.537  11.2   -42.6     59.9    0.649 
+ 3 Broad_USD       175 112.    114.     10.5    90.0    129.    -0.796 
+ 4 FPI             175   0.862   0.963   3.99  -15.9     11.2   -0.741 
+ 5 INR_ret         175   0.354   0.176   1.45   -3.57     6.18   0.679 
+ 6 INR_vol         175   0.354   0.325   0.203   0.0640   1.59   2.39  
+ 7 Infl_diff       175   3.02    2.73    3.34   -3.22    10.2    0.293 
+ 8 Rate_diff       175   4.70    4.08    2.56    1.05    11.3    0.387 
+ 9 Reserves_bn     175 435.    401.    123.    256.     640.     0.0822
+10 Trade_Balance   175 -15.8   -15.3     6.65  -36.4      0.547 -0.524 
+11 USDINR          175  71.5    71.0    10.7    49.2     95.9    0.193 
+12 USD_ret         175   0.149   0.168   1.19   -2.40     3.69   0.162 
+13 VIX             175  17.7    16.2     5.90   10.1     57.7    2.54  
+wrote 1.20kB in  0s, 418.38MB/s                                                                                                   wrote 1.00TB in  0s, 20.87PB/s                                                                                                   # A tibble: 3 × 3
+  Direction                n share
+  <chr>                <int> <dbl>
+1 Appreciated > 0.5%      42  24  
+2 Depreciated > 0.5%      74  42.3
+3 Stable (within 0.5%)    59  33.7
+Mode (most frequent month type): Depreciated > 0.5% 
+Calendar years where rupee weakened (Dec vs prior Dec):
+# A tibble: 16 × 3
+    Year USDINR pct_change
+   <dbl>  <dbl>      <dbl>
+ 1  2010   45.1     NA    
+ 2  2011   52.4     16.1  
+ 3  2012   54.6      4.32 
+ 4  2013   61.8     13.1  
+ 5  2014   62.7      1.45 
+ 6  2015   66.5      6.05 
+ 7  2016   67.8      1.96 
+ 8  2017   64.2     -5.25 
+ 9  2018   70.8     10.3  
+10  2019   71.2      0.457
+11  2020   73.6      3.46 
+12  2021   75.4      2.41 
+13  2022   82.5      9.39 
+14  2023   83.3      0.946
+15  2024   85.0      2.06 
+16  2025   90.0      5.96 
+
+Augmented Dickey-Fuller tests (H0: unit root). Negative, significant t = stationary.
+# A tibble: 8 × 5
+  series               n statistic   lag p_value
+  <chr>            <int>     <dbl> <dbl>   <dbl>
+1 USDINR_level       175     -2.58     5   0.335
+2 INR_ret            175     -6.06     5   0.01 
+3 Brent_level        175     -1.94     5   0.602
+4 Brent_ret          175     -5.96     5   0.01 
+5 Broad_USD_level    175     -1.93     5   0.604
+6 USD_ret            175     -4.99     5   0.01 
+7 India_Rate_level   175     -1.56     5   0.761
+8 d_Rate_diff        175     -6.47     5   0.01 
+wrote 1.00TB in  0s, 322.64PB/s                                                                                                   Interpretation: USD/INR and Brent levels typically fail to reject a unit root; INR_ret and Brent_ret typically reject it. Models therefore use returns/changes.
+
+Correlation of each driver with INR_ret (same month):
+# A tibble: 8 × 5
+  variable           r  p_value  ci_low ci_high
+  <chr>          <dbl>    <dbl>   <dbl>   <dbl>
+1 FPI          -0.489  6.33e-12 -0.595  -0.368 
+2 USD_ret       0.465  8.85e-11  0.340   0.574 
+3 Reserves_chg -0.366  6.41e- 7 -0.488  -0.230 
+4 d_Rate_diff   0.245  1.09e- 3  0.100   0.379 
+5 VIX_chg       0.231  2.07e- 3  0.0859  0.367 
+6 d_Trade_Bal   0.136  7.30e- 2 -0.0127  0.279 
+7 Brent_ret    -0.132  8.08e- 2 -0.275   0.0163
+8 Infl_diff     0.0506 5.06e- 1 -0.0985  0.197 
+wrote 1.00TB in  0s, 262.14PB/s                                                                                                   
+H0: mean INR_ret is equal in FPI-outflow and FPI-inflow months
+
+	Welch Two Sample t-test
+
+data:  INR_ret by FPI < 0
+t = -5.51, df = 127.87, p-value = 0.0000001895
+alternative hypothesis: true difference in means between group FALSE and group TRUE is not equal to 0
+95 percent confidence interval:
+ -1.6041949 -0.7564661
+sample estimates:
+mean in group FALSE  mean in group TRUE 
+         -0.1051189           1.0752116 
+
+
+H0: mean INR_ret is equal when oil rose vs fell
+
+	Welch Two Sample t-test
+
+data:  INR_ret by Brent_ret > 0
+t = 0.93854, df = 166.68, p-value = 0.3493
+alternative hypothesis: true difference in means between group FALSE and group TRUE is not equal to 0
+95 percent confidence interval:
+ -0.2287512  0.6433110
+sample estimates:
+mean in group FALSE  mean in group TRUE 
+          0.4672317           0.2599517 
+
+
+H0: rupee volatility is equal in shock and normal months
+
+	Welch Two Sample t-test
+
+data:  INR_vol by Shock_period == "Normal"
+t = 2.5514, df = 38.176, p-value = 0.01485
+alternative hypothesis: true difference in means between group FALSE and group TRUE is not equal to 0
+95 percent confidence interval:
+ 0.02755318 0.23906603
+sample estimates:
+mean in group FALSE  mean in group TRUE 
+          0.4614819           0.3281723 
+
+
+ANOVA: INR_ret by oil regime
+             Df Sum Sq Mean Sq F value Pr(>F)
+Oil_Regime    2    5.0   2.509    1.19  0.307
+Residuals   172  362.7   2.108               
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = INR_ret ~ Oil_Regime, data = md)
+
+$Oil_Regime
+                             diff        lwr       upr     p adj
+Oil flat-Oil falling   -0.4116680 -1.0464372 0.2231012 0.2779581
+Oil rising-Oil falling -0.2437918 -0.8785609 0.3909774 0.6359947
+Oil rising-Oil flat     0.1678762 -0.4695998 0.8053523 0.8079391
+
+
+ANOVA: INR_ret by FPI flow regime
+             Df Sum Sq Mean Sq F value         Pr(>F)    
+Flow_Regime   2  81.38   40.69   24.45 0.000000000453 ***
+Residuals   172 286.29    1.66                           
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = INR_ret ~ Flow_Regime, data = md)
+
+$Flow_Regime
+                                  diff       lwr         upr     p adj
+Neutral-Heavy outflow       -1.0104680 -1.574459 -0.44647674 0.0001094
+Strong inflow-Heavy outflow -1.6535597 -2.217551 -1.08956842 0.0000000
+Strong inflow-Neutral       -0.6430917 -1.209488 -0.07669529 0.0216510
+
+
+ANOVA assumption check (Levene):
+Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(>F)
+group   2  1.5453 0.2162
+      172               
+
+Kruskal-Wallis (non-parametric check):
+
+	Kruskal-Wallis rank sum test
+
+data:  INR_ret by Flow_Regime
+Kruskal-Wallis chi-squared = 43.186, df = 2, p-value = 0.000000000419
+

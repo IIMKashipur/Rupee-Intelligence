@@ -1,0 +1,246 @@
+Train: 131 months (2012-02-01 to 2022-12-01) | Test: 43 months (2023-01-01 to 2026-08-01)
+
+================ Model A ================
+
+Call:
+lm(formula = .x, data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.7522 -0.9097 -0.0493  0.7336  5.7986 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept)  0.39253    0.13824   2.839  0.00525 **
+Brent_ret   -0.02683    0.01184  -2.267  0.02506 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.581 on 129 degrees of freedom
+Multiple R-squared:  0.03831,	Adjusted R-squared:  0.03086 
+F-statistic: 5.139 on 1 and 129 DF,  p-value: 0.02506
+
+Newey-West robust standard errors:
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  0.392534   0.158341   2.479  0.01446 *
+Brent_ret   -0.026834   0.011120  -2.413  0.01723 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+================ Model B ================
+
+Call:
+lm(formula = .x, data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.8227 -0.8853 -0.0944  0.7654  5.6575 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  0.29433    0.20805   1.415   0.1596  
+Brent_ret   -0.02625    0.01190  -2.206   0.0292 *
+Infl_diff    0.02560    0.04046   0.633   0.5280  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.585 on 128 degrees of freedom
+Multiple R-squared:  0.04131,	Adjusted R-squared:  0.02633 
+F-statistic: 2.758 on 2 and 128 DF,  p-value: 0.0672
+
+Newey-West robust standard errors:
+
+t test of coefficients:
+
+             Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  0.294334   0.187300  1.5715   0.1185  
+Brent_ret   -0.026250   0.012143 -2.1618   0.0325 *
+Infl_diff    0.025602   0.053650  0.4772   0.6340  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+================ Model C ================
+
+Call:
+lm(formula = .x, data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.0386 -0.7145 -0.0254  0.6649  3.7722 
+
+Coefficients:
+             Estimate Std. Error t value   Pr(>|t|)    
+(Intercept)  0.236083   0.164435   1.436   0.153601    
+Brent_ret   -0.001469   0.010229  -0.144   0.886036    
+Infl_diff    0.067310   0.032294   2.084   0.039185 *  
+d_Rate_diff  0.679288   0.264743   2.566   0.011483 *  
+USD_ret      0.433172   0.108323   3.999   0.000109 ***
+FPI         -0.179455   0.035246  -5.092 0.00000128 ***
+d_Trade_Bal  0.059563   0.038230   1.558   0.121778    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.217 on 124 degrees of freedom
+Multiple R-squared:  0.4524,	Adjusted R-squared:  0.4259 
+F-statistic: 17.08 on 6 and 124 DF,  p-value: 0.000000000000026
+
+Newey-West robust standard errors:
+
+t test of coefficients:
+
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept)  0.2360827  0.1725209  1.3684  0.1736520    
+Brent_ret   -0.0014691  0.0085709 -0.1714  0.8641882    
+Infl_diff    0.0673101  0.0421887  1.5955  0.1131562    
+d_Rate_diff  0.6792881  0.3920829  1.7325  0.0856689 .  
+USD_ret      0.4331716  0.1082413  4.0019  0.0001074 ***
+FPI         -0.1794549  0.0417369 -4.2997 0.00003429 ***
+d_Trade_Bal  0.0595634  0.0401145  1.4848  0.1401253    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+================ Model D ================
+
+Call:
+lm(formula = .x, data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.8271 -0.7927 -0.0861  0.6386  3.9398 
+
+Coefficients:
+             Estimate Std. Error t value   Pr(>|t|)    
+(Intercept)  0.244654   0.164655   1.486    0.13990    
+Brent_ret   -0.006953   0.011012  -0.631    0.52893    
+Infl_diff    0.062389   0.032605   1.913    0.05803 .  
+d_Rate_diff  0.715918   0.266016   2.691    0.00812 ** 
+USD_ret      0.443729   0.108454   4.091 0.00007731 ***
+FPI         -0.217924   0.043678  -4.989 0.00000203 ***
+d_Trade_Bal  0.055293   0.038489   1.437    0.15339    
+VIX_chg     -0.038786   0.030659  -1.265    0.20825    
+L1_FPI       0.049539   0.037960   1.305    0.19433    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.216 on 122 degrees of freedom
+Multiple R-squared:  0.4623,	Adjusted R-squared:  0.427 
+F-statistic: 13.11 on 8 and 122 DF,  p-value: 0.0000000000001599
+
+Newey-West robust standard errors:
+
+t test of coefficients:
+
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept)  0.2446537  0.1672026  1.4632  0.1459796    
+Brent_ret   -0.0069532  0.0081642 -0.8517  0.3960665    
+Infl_diff    0.0623888  0.0392823  1.5882  0.1148257    
+d_Rate_diff  0.7159177  0.4229472  1.6927  0.0930671 .  
+USD_ret      0.4437292  0.1007762  4.4031 0.00002304 ***
+FPI         -0.2179243  0.0589777 -3.6950  0.0003304 ***
+d_Trade_Bal  0.0552934  0.0424195  1.3035  0.1948622    
+VIX_chg     -0.0387864  0.0283358 -1.3688  0.1735734    
+L1_FPI       0.0495390  0.0407250  1.2164  0.2261701    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+================ Model F ================
+
+Call:
+lm(formula = .x, data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.0138 -0.8687 -0.0484  0.7159  5.2518 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)  
+(Intercept)      0.4484936  0.1714917   2.615    0.010 *
+L1_INR_ret       0.0767093  0.1127800   0.680    0.498  
+L1_Brent_ret     0.0009721  0.0141160   0.069    0.945  
+L1_USD_ret       0.0599671  0.1597619   0.375    0.708  
+L1_FPI           0.0033364  0.0516059   0.065    0.949  
+L1_VIX_chg       0.0229265  0.0344121   0.666    0.507  
+L1_d_Rate_diff   0.1100510  0.3520799   0.313    0.755  
+L1_Reserves_chg -0.2160854  0.0978320  -2.209    0.029 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.568 on 123 degrees of freedom
+Multiple R-squared:  0.09817,	Adjusted R-squared:  0.04684 
+F-statistic: 1.913 on 7 and 123 DF,  p-value: 0.07299
+
+Newey-West robust standard errors:
+
+t test of coefficients:
+
+                   Estimate  Std. Error t value Pr(>|t|)   
+(Intercept)      0.44849364  0.15763111  2.8452 0.005201 **
+L1_INR_ret       0.07670933  0.11915685  0.6438 0.520925   
+L1_Brent_ret     0.00097211  0.00746920  0.1301 0.896661   
+L1_USD_ret       0.05996710  0.13734115  0.4366 0.663146   
+L1_FPI           0.00333640  0.03920374  0.0851 0.932317   
+L1_VIX_chg       0.02292651  0.02370883  0.9670 0.335440   
+L1_d_Rate_diff   0.11005101  0.25449024  0.4324 0.666181   
+L1_Reserves_chg -0.21608543  0.09368054 -2.3066 0.022749 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+VIF (multicollinearity, >5 is a concern):
+  Brent_ret   Infl_diff d_Rate_diff     USD_ret         FPI d_Trade_Bal 
+   1.260778    1.087051    1.032808    1.494743    1.377677    1.071324 
+
+Breusch-Pagan (heteroskedasticity):
+
+	studentized Breusch-Pagan test
+
+data:  mC
+BP = 8.7687, df = 6, p-value = 0.187
+
+
+Durbin-Watson (autocorrelation):
+
+	Durbin-Watson test
+
+data:  mC
+DW = 1.7542, p-value = 0.0585
+alternative hypothesis: true autocorrelation is greater than 0
+
+
+Shapiro-Wilk on residuals:
+
+	Shapiro-Wilk normality test
+
+data:  resid(mC)
+W = 0.98971, p-value = 0.4423
+
+
+Model comparison (test = 2023 onward):
+# A tibble: 6 × 8
+  model                  k adj_R2_train   AIC RMSE_test MAE_test R2_test Direction_hit
+  <chr>              <dbl>        <dbl> <dbl>     <dbl>    <dbl>   <dbl>         <dbl>
+1 A                      1       0.0309  496.     0.865    0.659  -0.374         0.605
+2 B                      2       0.0263  497.     0.872    0.656  -0.399         0.558
+3 C                      6       0.426   432.     1.01     0.852  -0.874         0.628
+4 D                      8       0.427   434.     1.14     0.936  -1.41          0.628
+5 F                      7       0.0468  499.     0.785    0.638  -0.132         0.605
+6 Naive (train mean)     0      NA        NA      0.738    0.581   0             0.628
+wrote 1.00TB in  0s, 524.29PB/s                                                                                                   
+Driver scorecard (standardised betas, Newey-West SEs):
+# A tibble: 6 × 8
+  driver      beta_std     se   p_value  ci_low ci_high effect            significant
+  <chr>          <dbl>  <dbl>     <dbl>   <dbl>   <dbl> <chr>             <lgl>      
+1 FPI          -0.397  0.0943 0.0000481 -0.582   -0.212 Strengthens rupee TRUE       
+2 USD_ret       0.325  0.0792 0.0000730  0.170    0.480 Weakens rupee     TRUE       
+3 d_Rate_diff   0.173  0.104  0.0969    -0.0298   0.376 Weakens rupee     FALSE      
+4 Infl_diff     0.144  0.0939 0.127     -0.0397   0.328 Weakens rupee     FALSE      
+5 d_Trade_Bal   0.107  0.0720 0.139     -0.0339   0.248 Weakens rupee     FALSE      
+6 Brent_ret    -0.0107 0.0623 0.864     -0.133    0.111 Strengthens rupee FALSE      
+wrote 1.00TB in  0s, 322.64PB/s                                                                                                   
